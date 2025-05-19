@@ -1,0 +1,5 @@
+Flask==2.3.3            # For the web framework
+tensorflow==2.13.0      # For loading the model and predictions
+numpy==1.24.4           # For numerical computations
+Pillow==9.5.0           # For image processing
+pyngrok==5.2.3          # For exposing local server to the web
