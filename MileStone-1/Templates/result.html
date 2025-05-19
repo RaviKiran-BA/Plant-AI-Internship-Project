@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Disease Detection Result</h1>
+        </header>
+        <main>
+            <div class="result-box">
+                <!-- <h2>Results</h2> -->
+                {% for model_name, prediction in results.items() %}
+                    <div style="text-align: center; margin: 10px 0;">
+                        {{ model_name.capitalize() }}: {{ prediction }}
+                    </div>
+                {% endfor %}
+            </div>
+            <a href="/" class="back-button">Go Back</a>
+        </main>
+        <footer>
+            <p>&copy; 2024 PlantAI - Designed & Developed by Soumalya</p>
+        </footer>
+    </div>
+</body>
+</html>

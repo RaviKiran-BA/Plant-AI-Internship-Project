@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PlantAI - Automated Disease Detection</h1>
+        </header>
+        <main>
+            <div class="upload-box">
+                <form id="uploadForm" action="/predict" method="post" enctype="multipart/form-data" onsubmit="return startUpload(event)">
+                    <label for="plant-select" class="file-label">Upload the Plant Leaf Specimen</label>                
+                    <input type="file" id="file-input" name="file" required onchange="previewFile(event)">
+                    <p id="error-message" class="error-message">Invalid File Format. Only PNG, JPG, and JPEG are allowed.</p>
+                    <img id="image-preview" class="image-preview">
+                    
+                    <div class="button-container">
+                        <button type="submit">Detect</button>
+                    </div>
+
+                    <div id="progress-container" class="progress-container" style="display: none;">
+                        <div id="progress-bar" class="progress-bar">0%</div>
+                    </div>
+                    <p id="success-message" class="success-message" style="display: none;">Image Uploaded Successfully!</p>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 PlantAI - Designed & Developed by Soumalya</p>
+        </footer>
+    </div>
+
+    <script>
+        function previewFile(event) {
+            const file = event.target.files[0]; // Get the selected file
+            const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+            const errorMessage = document.getElementById('error-message');
+            const imagePreview = document.getElementById('image-preview');
+            const reader = new FileReader();
+
+            // Check if the file is an allowed image format
+            if (file && allowedExtensions.exec(file.name)) {
+                errorMessage.style.display = 'none'; // Hide error message
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result; // Set the image source to the selected file
+                    imagePreview.style.display = 'block'; // Show the image preview
+                };
+                reader.readAsDataURL(file); // Read the file as a data URL
+            } else {
+                // If not an image, hide the preview and show error
+                errorMessage.style.display = 'block'; // Show error message
+                imagePreview.style.display = 'none'; // Hide image preview
+            }
+        }
+
+        function startUpload(event) {
+            const fileInput = document.getElementById('file-input');
+            const errorMessage = document.getElementById('error-message');
+
+            // Check if the file is valid before proceeding
+            if (!fileInput.files.length || errorMessage.style.display === 'block') {
+                event.preventDefault(); // Prevent submission if there is an error
+                return false; // Stop further execution
+            }
+
+            event.preventDefault(); // Prevent the form from submitting immediately
+
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+            const successMessage = document.getElementById('success-message');
+
+            // Show the progress bar container
+            progressContainer.style.display = 'block';
+            
+            // Reset progress bar and success message
+            progressBar.style.width = '0%';
+            progressBar.textContent = '0%';
+            successMessage.style.display = 'none';
+
+            // Simulate the progress bar increasing
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = progress + '%';
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    // Show success message when the progress reaches 100%
+                    successMessage.style.display = 'block';
+                    
+                    // Optionally, submit the form programmatically
+                    document.getElementById('uploadForm').submit();
+                }
+            }, 200); // Update progress every 200ms
+        }
+    </script>
+</body>
+</html>
+
