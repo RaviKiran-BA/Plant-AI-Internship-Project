@@ -1,6 +1,6 @@
 # PlantAI: Automated Plant Disease Detection using AI Vision Algorithm
 
-- **Intern Name**: Soumalya Bhattacharyya  
+- **Intern Name**: Ravi Kiran B A  
 - **Internship Domain**: Artificial Intelligence  
 - **Project Mentor**: Revathi Venugari  
 - **Project Coordinator**: Arathy Pillai  
@@ -12,7 +12,7 @@
 - **Machine Learning Libraries**: NumPy, Pandas, Matplotlib, Seaborn  
 - **Computer Vision Modules**: OpenCV, Pillow  
 - **Platforms**: Google Colab  
-- **Deployment**: Vercel  
+- **Deployment**: Ngrok  
 
 ### Dataset  
 - [Plant Leaf Disease Dataset- Downloaded from Kaggle](https://www.kaggle.com/datasets/asheniranga/leaf-disease-dataset-combination)
