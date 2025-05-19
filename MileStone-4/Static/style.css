@@ -1,0 +1,622 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #badebd; /* Replace with the light greenish color */
+    color: #333;
+    /* height: 100%; */
+    margin-top: 80px; /* Add space to the top of the home section */
+}
+
+
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 25px;
+    margin-right: 10px;
+}
+
+.navbar-brand {
+    font-size: 1.7em;
+    color: #119c1d;
+    font-weight: bold;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #119c1d;
+}
+
+
+.disease-detector-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    }
+
+.disease-detector {
+    max-width: 850px;
+    width: 100%;
+    padding: 70px;
+    background-color: #e8f5e9; /* Light green background for emphasis */
+    /* border: 4px solid #0b0b0b; */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+}
+
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.165em;
+    color: #2c3e50;
+}
+
+h2 {
+    color: #119c1d; /* Deep medium leaf green */
+    font-size: 1.6em;
+    padding-top: 3%;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #050505;
+}
+
+main {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center content */
+}
+
+.upload-box, .result-box {
+    background: #efede9; /* Light background for the boxes */
+    padding: 20px;
+    border: 2px solid #0b0b0b; /* Border around the container */
+    border-radius: 8px;
+    width: 100%; /* Make it responsive */
+    max-width: 400px; /* Max width for the box */
+    text-align: center; /* Center text inside the box */
+    margin-bottom: 20px; /* Space between boxes */
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 2px solid #161617;
+    border-radius: 5px;
+    margin-bottom: 0px;
+    width: 56%;
+    max-width: 300px; /* Adjust width for better appearance */
+}
+
+button {
+    padding: 10px 20px;
+    background: #119c1d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #d74514;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #119c1d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.back-button:hover {
+    background: #d74514;
+}
+
+
+.suggest-button{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #119c1d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.suggest-button:hover {
+    background: #d74514;
+}
+
+.file-label {
+    display: block;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+.image-preview {
+    margin-top: 10px;
+    max-width: 200px;
+    border: 1px solid #ccc;
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.dropdown {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold; /* Make the error message bold */
+    display: none;
+}
+.image-preview {
+    max-width: 35%;
+    margin-top: 10px;
+    display: none; /* Hide the image preview by default */
+}
+
+.progress-container {
+    margin-top: 10px;
+    display: none;
+}
+.progress-bar {
+    width: 0;
+    height: 20px;
+    background-color: green;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+    display: none;
+}
+
+.home {
+    padding: 50px 20px;
+    text-align: center;
+    /* background-color: #e3f2e1; */
+    margin-top: 80px; 
+}
+
+
+.home h1 {
+    font-size: 2.8em;
+    color: #119c1d;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.home p {
+    font-size: 1.4em;
+    color: #4a4a4a;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.feature {
+    background-color: #e8f5e9; /* Light green background for emphasis */
+    padding: 20px;
+    /* border: 2px solid #0b0b0b; Border around the container */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+}
+
+
+.feature h3 {
+    font-size: 1.2em;
+    color: #119c1d;
+    margin: 10px 0;
+}
+
+.feature p {
+    font-size: 1em;
+    color: #666666;
+}
+
+.try-now {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #119c1d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.try-now:hover {
+    background-color: #119c1d;
+}
+
+
+/* Why PlantAI Section */
+.why-plantai {
+    padding: 80px 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.why-plantai h2 {
+    font-size: 2.5em;
+    color: #119c1d;
+}
+
+.why-plantai .info-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increased gap for larger spacing between cards */
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.why-plantai .card {
+    flex: 1 1 45%; /* Makes cards larger and more responsive */
+    max-width: 600px; /* Sets a maximum width */
+    padding: 30px; /* Increased padding for a more spacious look */
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow for better distinction */
+    text-align: center;
+}
+
+.why-plantai .card h3 {
+    font-size: 1.75em; /* Larger font size for subheadings */
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.why-plantai .card p {
+    font-size: 1.1em; /* Slightly larger text for readability */
+    color: #555; /* Darker gray for contrast */
+    line-height: 1.8; /* Increased line height for better readability */
+}
+
+.why-plantai .tech-stack ul {
+    list-style-type: disc;
+    padding-left: 25px; /* Increased padding for alignment */
+}
+
+.why-plantai .tech-stack li {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Specific Styling for "Our Mission" Card */
+.why-plantai .mission {
+    background-color: #e8f5e9; /* Light green background for emphasis */
+}
+
+/* Specific Styling for "Technology Stack" Card */
+.why-plantai .tech-stack {
+    background-color: #e8f5e9; /* Light green background for emphasis */
+}
+
+
+
+/* Team Section */
+.team {
+    padding: 80px 20px;
+    text-align: center;
+    /* background-color: #0d1a5a; */
+    color: #0b0b0b;
+    margin: 0 10%; /* Add margin to left and right */
+    /* margin-top: -10px; */
+}
+
+.team h2 {
+    font-size: 2.5em;
+    color: #119c1d;
+    margin-bottom: 20px;
+}
+
+.team p {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    font-size: 1.4em;
+    color: #0b0b0b;
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 boxes per row */
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background-color: #e8f5e9; /* Light green background for emphasis */
+    padding: 15px; /* Reduced padding for narrower boxes */
+    padding-bottom: 0px; /* Decrease the lower padding */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #0d1a5a;
+    width: 100%; /* Make the box fill the grid cell */
+}
+
+
+.team-member img {
+    width: 120px; /* Reduced image size */
+    height: 140px; /* Reduced image size */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 1em;
+    color: #555555;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    transition: 0.3s ease;
+}
+
+/* Contact Us Section */
+.contact-us {
+    padding: 80px 20px;
+    text-align: center;
+    /* background-color: #f0f0f0; */
+}
+
+.contact-us h2 {
+    font-size: 2.5em;
+    color: #119c1d;
+    margin-bottom: 20px;
+}
+
+/* Contact Information (Outside the Box) */
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    text-align: left;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+/* Contact Container for Form (Inside the Box) */
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e8f5e9; /* Light green background for emphasis */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.contact-form {
+    display: grid;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-size: 1em;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-size: 1em;
+    width: 100%;
+}
+
+.contact-form button {
+    background-color: #119c1d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.contact-form button:hover {
+    background-color: #d74514;
+}
+
+/* Make sure to add smooth scroll behavior to navigate to the section smoothly */
+html {
+    scroll-behavior: smooth;
+}
+
+.upload-container {
+    max-width: 1000px;
+    max-height: 1000px;
+    margin: 4rem auto; /* Center with top and bottom margin */
+    margin-top :0;
+    padding: 2rem 3rem; /* Increase padding for more space */
+    background-color: #e8f5e9; /* Light green background for emphasis */
+    border-radius: 15px;
+    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); */
+    text-align: center; /* Center-align the content */
+}
+
+.disease-info-section {
+    margin-bottom: 1.2rem;
+    padding: 0.8rem;
+    background: #efede9; /* Light background for the boxes */
+    border: 2px solid #0b0b0b; /* Border around the container */
+    border-radius: 8px;
+    font-size: 1.0rem;
+}
+
+.disease-title {
+    font-weight:bolder;
+    color: rgb(2, 41, 6);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.disease-list {
+    list-style-type: disc;
+    margin-left: 1.2rem;
+    padding-left: 0.5rem;
+    color: #100f0f;
+}
+
+.disease-list li {
+    margin-bottom: 0.4rem;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+.search-input {
+    width: 1548px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 20px;
+
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #119c1d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.search-button:hover {
+    background-color: #119c1d;
+}
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    background-color: #e8f5e9; /* Light green background for emphasis */
+}
+.box img {
+    width: 160px; /* Set the desired width */
+    height: 170px; /* Set the desired height */
+    object-fit: contain; /* Ensures the image retains its aspect ratio */
+    margin-bottom: 10px;
+
+}
+.box .product-title {
+    font-weight: bold;
+    margin: 10px 0;
+}
+.box .product-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+.box .update-button {
+    padding: 10px 15px;
+    background-color: #119c1d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.box .update-button:hover {
+    background-color: #119c1d;
+}
