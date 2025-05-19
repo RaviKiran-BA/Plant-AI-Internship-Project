@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantCure AI</title>
+    <link rel="icon" href="static/favicon.png" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="static/favicon.png" alt="Logo" class="navbar-logo">
+            <span class="navbar-brand">PlantCure AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+            <a href="#why-plantai" class="nav-link">Why PlantCure</a>
+            <a href="#agribot" class="nav-link">Agribot</a>
+            <a href="#suggestions" class="nav-link">Suggestions</a>
+            <a href="{{ url_for('product') }}" class="nav-link">Supplements</a>
+            <a href="#team" class="nav-link">Team</a>
+            <a href="#contact-us" class="nav-link">Contact Us</a>
+        </div>
+    </nav>
+    <div class="disease-detector-container">
+    <div class="disease-detector">
+        <header>
+            <h1>Plant Leaf Disease Detection Result</h1>
+        </header>
+        <main>
+            <div class="result-box">
+                <h2>The Detected Disease is</h2>
+                <p style="text-align: center; font-size: 1.2em; margin: 20px 0;">
+                    {{ prediction }}
+                </p>
+                <p style="text-align: center; font-size: 1em; margin: 10px 0;">
+                    Confidence: {{ confidence|round(2) }}%
+                </p>
+            </div>
+            <div class="button-group">
+                <a href="/" class="back-button">Go Back</a>
+                <a href="/suggest?disease={{ prediction }}" class="suggest-button">Suggestions</a>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 PlantAI - Designed & Developed by Soumalya</p>
+        </footer>
+    </div>
+</div>
+
+<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2024/11/14/10/20241114105854-GTIZTUTV.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantCure AI {{ disease }}</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="{{ url_for('static', filename='favicon.png') }}" alt="Logo" class="navbar-logo">
+            <span class="navbar-brand">PlantCure AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+            <a href="#why-plantai" class="nav-link">Why PlantCure</a>
+            <a href="#agribot" class="nav-link">Agribot</a>
+            <a href="#suggestions" class="nav-link">Suggestions</a>
+            <a href="{{ url_for('product') }}" class="nav-link">Supplements</a>
+            <a href="#team" class="nav-link">Team</a>
+            <a href="#contact-us" class="nav-link">Contact Us</a>
+        </div>
+    </nav>
+    
+    <div class="upload-container">
+        <h1 style="margin-bottom: 20px;">{{ disease }} - Suggestions</h1>
+    
+        <div class="disease-info-section">
+            <p class="disease-title"><strong>Description</strong></p>
+            <p>{{ description }}</p>
+        </div>
+    
+        {% if cause %}
+        <div class="disease-info-section">
+            <p class="disease-title"><strong>Causes</strong></p>
+            <p>{{ cause }}</p>
+        </div>
+        {% endif %}
+
+        {% if cure %}
+        <div class="disease-info-section">
+            <p class="disease-title"><strong>Information</strong></p>
+            <p>{{ cure }}</p>
+        </div>
+        {% endif %}
+    
+        {% if symptoms %}
+        <div class="disease-info-section">
+            <p class="disease-title"><strong>Symptoms</strong></p>
+            <ul class="disease-list">
+                <li>{{ symptoms }}</li>
+                
+            </ul>
+        </div>
+        {% endif %}
+    
+        {% if prevention %}
+        <div class="disease-info-section">
+            <p class="disease-title"><strong>Prevention</strong></p>
+            <ul class="disease-list">
+                {% for tip in prevention %}
+                    <li>{{ tip }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    
+        {% if treatment %}
+        <div class="disease-info-section">
+            <p class="disease-title"><strong>Treatment</strong></p>
+            <ul class="disease-list">
+                {% for step in treatment %}
+                    <li>{{ step }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    
+        <div class="button-group">
+            <a href="{{ url_for('index') }}" class="back-button" style="margin-top: 0px;">Go Back</a>
+            <a href="{{ url_for('product') }}" class="suggest-button">Supplements</a>
+
+        </div>
+    </div>
+</body>
+</html>
+

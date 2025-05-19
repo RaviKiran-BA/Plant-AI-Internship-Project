@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantCure AI</title>
+    <link rel="icon" href="static/favicon.png" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="static/favicon.png" alt="Logo" class="navbar-logo">
+            <span class="navbar-brand">PlantCure AI</span>
+        </div>
+        <div class="navbar-right">
+            <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+            <a href="#why-plantai" class="nav-link">Why PlantCure</a>
+            <a href="#disease-detector" class="nav-link">Disease Detector</a>
+            <a href="#agribot" class="nav-link">Agribot</a>
+            <a href="#suggestions" class="nav-link">Suggestions</a>
+            <a href="{{ url_for('product') }}" class="nav-link">Supplements</a>
+            <a href="#team" class="nav-link">Team</a>
+            <a href="#contact-us" class="nav-link">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+<section class="home" id="home">
+    <header>
+        <h1>Welcome to PlantCure AI Detector Tool</h1>
+        <p>Our advanced AI technology helps you identify and treat plant diseases quickly and accurately. Upload a photo of your plant, and get an instant analysis. The PlantCure AI Detector uses machine learning algorithms trained on vast datasets to recognize symptoms and diagnose plant health issues. With real-time insights, you can take immediate action to protect and nurture your plants. The system also provides tailored recommendations, helping you address specific plant care needs. Whether you're a home gardener or a professional, Plant AI is your go-to solution for maintaining healthy plants effortlessly.</p>
+    </header>
+    <div class="features">
+        <div class="feature">
+            <h3>Instant Checkup</h3>
+            <p>Snap a picture for a quick health assessment. Spot issues early to keep your plants thriving.</p>
+        </div>
+        <div class="feature">
+            <h3>Custom Care</h3>
+            <p>Get care tips tailored to your plant's needs, from watering to nutrient advice for optimal growth.</p>
+        </div>
+        <div class="feature">
+            <h3>Smart Detection</h3>
+            <p>AI-powered analysis identifies diseases and pests with precision, helping you take quick action.</p>
+        </div>
+        <div class="feature">
+            <h3>Plant Library</h3>
+            <p>Explore a wealth of info on plant species, symptoms, and treatments to boost your plant knowledge.</p>
+        </div>
+    </div>    
+    <a href="#disease-detector">
+        <button class="try-now">Try the Model</button>
+    </a>
+    </section>
+
+
+<!-- Why PlantAI Section -->
+<section class="why-plantai" id="why-plantai">
+    <h2>Why PlantCure AI</h2>
+    <div class="info-cards">
+        <div class="card mission">
+            <h3>Moto and Objective Behind PlantCure AI</h3>
+            <p>PlantAI aims to revolutionize plant disease detection through advanced artificial intelligence. Our commitment is to empower farmers, gardeners, and plant enthusiasts with tools for early disease detection, contributing to sustainable and healthy agriculture practices across India and throughout the whole worldwide.</p>
+            <p>Our mission is driven by the need to combat plant diseases that threaten food security, and we envision a future where AI and agriculture unite to safeguard global crops and resources.</p>
+        </div>
+        <div class="card tech-stack">
+            <h3>Technologies used to Build the Model</h3>
+            <ul>
+                <li><strong>Front End & UI Technologies</strong> – HTML, CSS, Javascript</li>
+                <li><strong>Back End Development</strong> – Python, Flask, Gemini API</li>
+                <li><strong>Deep Learning Frameworks</strong> – Tensorflow, Keras, CNN</li>
+                <li><strong>Machine Learning Libraries</strong> – Numpy, Pandas, Matplotlib</li>
+                <li><strong>Computer Vision AI Based Models</strong> – Open CV, Pillow</li>
+                <li><strong>IDE Tools & Platforms</strong> – Visual Studio Code, Google Colab</li>
+                <li><strong>Version Tools & Deployment</strong> – Git, Github, Vercel, Render</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Disease Detector Section -->
+    <div class="disease-detector-container">
+    <section class="disease-detector" id="disease-detector">
+        
+        <header>
+            <h1>PlantCure AI - Automated Disease Detection</h1>
+            <h2>Diagnose your Plant Leaves using Image Analysis</h2>
+        </header>
+        <main>
+            <div class="upload-box">
+                <form id="uploadForm" action="/result" method="post" enctype="multipart/form-data" onsubmit="return startUpload(event)">
+                    <label for="plant-select" class="file-label">Upload the Plant Leaf Specimen</label>                
+                    <input type="file" id="file-input" name="file" required onchange="previewFile(event)">
+                    <p id="error-message" class="error-message">Invalid File Format. Only PNG, JPG, and JPEG are allowed.</p>
+                    <img id="image-preview" class="image-preview">
+                    
+                    <div class="button-container">
+                        <button type="submit">Detect</button>
+                    </div>
+
+                    <div id="progress-container" class="progress-container" style="display: none;">
+                        <div id="progress-bar" class="progress-bar">0%</div>
+                    </div>
+                    <p id="success-message" class="success-message" style="display: none;">Image Uploaded Successfully!</p>
+                </form>
+            </div>
+            <footer>
+                <p>&copy; 2024 PlantAI - Designed & Developed by Soumalya</p>
+            </footer>
+        </main>
+        
+    </section>
+    </div>
+
+<!-- Team Section -->
+<section class="team" id="team">
+    <header>
+        <h2>Meet the Team</h2>
+    </header>
+    <div class="team-members">
+        <div class="team-member">
+            <img src="static/profile1.jpg" alt="Toby Hargraves">
+            <h3>Anshuman Chawhan</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile1.jpg" alt="Brooke Lindsey">
+            <h3>Soumalya Bhattacharyya</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile2.png" alt="Jim Nicholson">
+            <h3>Prachi Kumari</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile1.jpg" alt="Rachel Glisson">
+            <h3>Ashutosh Rane</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile2.png" alt="Regina Marshall">
+            <h3>Asritha Naramsetty</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile1.jpg" alt="Laurel Young">
+            <h3>Mangaldip Dhua</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile1.jpg" alt="Violet Wheeler">
+            <h3>Ravi kiran</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile1.jpg" alt="Morris Reid">
+            <h3>Tharan Adithya</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile1.jpg" alt="Morris Reid">
+            <h3>Viswajit Suryawanshi</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+        <div class="team-member">
+            <img src="static/profile2.png" alt="Morris Reid">
+            <h3>Kalluri Sahasra</h3>
+            <p>Infosys Springboard AI Intern</p>
+        </div>
+    </div>
+</section>
+
+    
+<!-- Contact Us Section -->
+<section class="contact-us" id="contact-us">
+    <h2>Contact Us</h2>
+
+    <!-- Contact Information (Outside the Box) -->
+    <div class="contact-info">
+        <!-- <p>Need help with PlantAI? Our support team is here to assist you! Whether you're looking for guidance on how to use PlantAI, need help troubleshooting an issue, or have ideas for improvements, we’d love to hear from you.</p> -->
+    </div>
+
+    <!-- Contact Form (Inside the Box) -->
+    <div class="contact-container">
+        <form class="contact-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobile">Your Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+
+
+    <script>
+        // JavaScript for preview and upload simulation (same as previous script)
+        function previewFile(event) {
+            const file = event.target.files[0]; 
+            const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+            const errorMessage = document.getElementById('error-message');
+            const imagePreview = document.getElementById('image-preview');
+            const reader = new FileReader();
+
+            if (file && allowedExtensions.exec(file.name)) {
+                errorMessage.style.display = 'none';
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result; 
+                    imagePreview.style.display = 'block'; 
+                };
+                reader.readAsDataURL(file); 
+            } else {
+                errorMessage.style.display = 'block'; 
+                imagePreview.style.display = 'none'; 
+            }
+        }
+
+        function startUpload(event) {
+            const fileInput = document.getElementById('file-input');
+            const errorMessage = document.getElementById('error-message');
+            
+            if (!fileInput.files.length || errorMessage.style.display === 'block') {
+                event.preventDefault(); 
+                return false;
+            }
+
+            event.preventDefault(); 
+
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+            const successMessage = document.getElementById('success-message');
+
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+            progressBar.textContent = '0%';
+            successMessage.style.display = 'none';
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = progress + '%';
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    successMessage.style.display = 'block';
+                    document.getElementById('uploadForm').submit();
+                }
+            }, 200);
+        }
+    </script>
+    
+</body>
+</html>
